@@ -1,0 +1,46 @@
+{
+  "name": "@sober/react-use-core",
+  "version": "1.0.0",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.mts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "dev": "build --watch",
+    "build": "build"
+  },
+  "description": "Core package of react-use",
+  "keywords": [
+    "react-use",
+    "react",
+    "hooks",
+    "utils"
+  ],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "peerDependencies": {
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  },
+  "dependencies": {
+    "@sober/react-use-shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@react-use/build": "workspace:*"
+  }
+}

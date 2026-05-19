@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+# 检查拼写错误
+pnpm spellcheck
+
+# 检查代码格式
+pnpm lint-staged

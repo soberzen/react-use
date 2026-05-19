@@ -1,0 +1,13 @@
+{
+  "import": "@cspell/dict-lorem-ipsum/cspell-ext.json",
+  "caseSensitive": false,
+  "dictionaries": ["react-use-words"],
+  "dictionaryDefinitions": [
+    {
+      "name": "react-use-words",
+      "path": "./.cspell/react-use-words.txt",
+      "addWords": true
+    }
+  ],
+  "ignorePaths": ["**/node_modules/**", "**/dist/**", "**/docs/**", ".husky/**", "**/package.json"]
+}

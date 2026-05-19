@@ -1,0 +1,15 @@
+packages:
+  - 'internal/*'
+  - 'packages/*'
+  - 'website'
+  - 'playground'
+
+allowBuilds:
+  core-js: false
+
+catalog:
+  'react': ^19.0.0
+  'react-dom': ^19.0.0
+  '@types/react': ^19.0.0
+  '@types/react-dom': ^19.0.0
+  '@types/node': 25.8.0

@@ -1,0 +1,39 @@
+{
+  "name": "@sober/react-use-shared",
+  "version": "0.0.0",
+  "private": true,
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.mts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "build",
+    "dev": "build --watch"
+  },
+  "keywords": [
+    "react-use",
+    "shared"
+  ],
+  "description": "Shared code for react-use",
+  "author": "sober",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "@react-use/build": "workspace:*"
+  }
+}

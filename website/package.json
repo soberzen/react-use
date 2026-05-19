@@ -1,0 +1,29 @@
+{
+  "name": "@react-use/docs",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "dev": "rspress dev",
+    "build": "rspress build",
+    "preview": "rspress preview"
+  },
+  "keywords": [
+    "react-use",
+    "react",
+    "hooks",
+    "utils"
+  ],
+  "description": "Docs package of react-use",
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "rspress": "^1.47.1"
+  }
+}
