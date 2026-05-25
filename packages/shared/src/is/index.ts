@@ -10,7 +10,7 @@ export function isArray(val: unknown): val is unknown[] {
   return Array.isArray(val);
 }
 
-export function isFunction(val: unknown): val is (...args: unknown[]) => unknown {
+export function isFunction(val: unknown): val is (...args: any[]) => any {
   return typeof val === 'function';
 }
 
