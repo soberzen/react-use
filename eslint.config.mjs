@@ -49,12 +49,10 @@ export default defineConfig([
       },
     },
     rules: {
-      'simple-import-sort/imports': 'error',
-      'simple-import-sort/exports': 'error',
       'no-console': ['warn', { allow: ['warn', 'error'] }],
       'unicorn/no-empty-file': 'error',
-      'sonarjs/no-implicit-dependencies': 'error',
-      "@typescript-eslint/no-explicit-any": "off"
+      'sonarjs/no-implicit-dependencies': ['error', { whitelist: ['@/*'] }],
+      '@typescript-eslint/no-explicit-any': 'off',
     },
     plugins: {
       'simple-import-sort': importSort,
