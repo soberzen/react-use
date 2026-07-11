@@ -21,7 +21,9 @@
   ],
   "scripts": {
     "dev": "build --watch",
-    "build": "build"
+    "build": "build",
+    "test": "vitest run --color",
+    "test:coverage": "vitest run --color --coverage"
   },
   "description": "Core package of react-use",
   "keywords": [

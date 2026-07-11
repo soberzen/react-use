@@ -5,7 +5,8 @@ packages:
   - 'playground'
 
 allowBuilds:
-  core-js: false
+  '@parcel/watcher': true
+  core-js: true
 
 catalog:
   'react': ^19.0.0

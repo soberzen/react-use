@@ -22,7 +22,9 @@
   ],
   "scripts": {
     "build": "build",
-    "dev": "build --watch"
+    "dev": "build --watch",
+    "test": "vitest run --color",
+    "test:coverage": "vitest run --color --coverage"
   },
   "keywords": [
     "react-use",
