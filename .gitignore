@@ -6,3 +6,5 @@ doc_build/
 
 .env.local
 .env
+
+.pnpm-store
