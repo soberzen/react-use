@@ -8,3 +8,4 @@ doc_build/
 .env
 
 .pnpm-store
+coverage
