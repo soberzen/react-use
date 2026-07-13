@@ -12,7 +12,7 @@ import eslintPluginReact from 'eslint-plugin-react';
 export default defineConfig([
   // 忽略 node_modules 和 dist 目录下的文件
   {
-    ignores: ['**/node_modules/**', '**/dist/**', '**/**/__test__/**'],
+    ignores: ['**/node_modules/**', '**/dist/**', '**/__test__/**'],
   },
   // 推荐配置
   js.configs.recommended,
