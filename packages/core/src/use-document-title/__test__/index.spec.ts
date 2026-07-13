@@ -38,4 +38,19 @@ describe('useDocumentTitle', () => {
     unmount();
     expect(document.title).toBe('原始标题');
   });
+
+  test('当不传参或传入 undefined 时，不应该修改 document.title', () => {
+    document.title = '保持原样';
+
+    // @ts-expect-error intentionally testing invalid runtime input
+    renderHook(() => useDocumentTitle({ string: 111 }));
+    expect(document.title).toBe('保持原样');
+
+    // 测试传入 undefined
+    // @ts-expect-error intentionally testing invalid runtime input
+    const { rerender } = renderHook(({ title }) => useDocumentTitle(title), {
+      initialProps: { title: undefined },
+    });
+    expect(document.title).toBe('保持原样');
+  });
 });
