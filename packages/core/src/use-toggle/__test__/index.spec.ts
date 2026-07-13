@@ -28,16 +28,22 @@ describe('useToggle', () => {
     expect(result.current[0]).toBe(false);
     act(() => result.current[1]());
     expect(result.current[0]).toBe(true);
+    act(() => result.current[1]());
+    expect(result.current[0]).toBe(false);
     // 测试自定义设置reverse 的情况
     const { result: reverseResult } = renderHook(() => useToggle('男', '女'));
     expect(reverseResult.current[0]).toBe('男');
     act(() => reverseResult.current[1]());
     expect(reverseResult.current[0]).toBe('女');
+    act(() => reverseResult.current[1]());
+    expect(reverseResult.current[0]).toBe('男');
     // 测试设置 reverseValue 为 undefined 的情况
     const { result: customResult } = renderHook(() => useToggle('男', undefined));
     expect(customResult.current[0]).toBe('男');
     act(() => customResult.current[1]());
     expect(customResult.current[0]).toBe(undefined);
+    act(() => customResult.current[1]());
+    expect(customResult.current[0]).toBe('男');
     // 测试设置 defaultValue 为 undefined 的情况
     const { result: customResult2 } = renderHook(() => useToggle(undefined, '男'));
     expect(customResult2.current[0]).toBe(undefined);
