@@ -13,6 +13,8 @@
     "spellcheck": "cspell lint --dot --gitignore --color --show-suggestions \"**/*.{js,mjs,ts,tsx,jsx}\"",
     "lint-staged": "lint-staged",
     "commit": "git-cz",
+    "test": "pnpm --filter=./packages/* test",
+    "test:coverage": "cross-env REACT_MODE=strict pnpm --filter=./packages/* test:coverage",
     "prepare": "husky"
   },
   "lint-staged": {
