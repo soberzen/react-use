@@ -2,10 +2,9 @@ import { useIsomorphicEffect } from '../use-isomorphic-effect';
 
 export function useDocumentTitle(title: string) {
   useIsomorphicEffect(() => {
-    const trimTitle = title.trim();
-    if (typeof title === 'string' && trimTitle.length > 0) {
+    if (typeof title === 'string' && title.trim().length > 0) {
       const prev = document.title;
-      document.title = trimTitle;
+      document.title = title.trim();
       return () => {
         document.title = prev;
       };
