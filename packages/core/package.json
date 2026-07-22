@@ -1,6 +1,6 @@
 {
-  "name": "@sober/react-use-core",
-  "version": "1.0.0",
+  "name": "@gysober/react-use-core",
+  "version": "0.0.0",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.mts",
@@ -43,7 +43,7 @@
     "react-dom": "catalog:"
   },
   "dependencies": {
-    "@sober/react-use-shared": "workspace:*"
+    "@gysober/react-use-shared": "workspace:*"
   },
   "devDependencies": {
     "@react-use/build": "workspace:*"

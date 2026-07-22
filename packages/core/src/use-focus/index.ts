@@ -1,4 +1,4 @@
-import { isFunction, on, off } from '@sober/react-use-shared';
+import { isFunction, on, off } from '@gysober/react-use-shared';
 import { type ForwardedRef, type RefCallback, useCallback, useEffect, useState } from 'react';
 
 export type UseFocusReturn<T> = [

@@ -13,7 +13,7 @@ import { UseUnmountDemo } from '../../components/hook-demos';
 ## 使用
 
 ```tsx
-import { useUnmount } from '@sober/react-use-core';
+import { useUnmount } from '@gysober/react-use-core';
 
 function Subscription({ id }: { id: string }) {
   useUnmount(() => {
@@ -32,7 +32,7 @@ function Subscription({ id }: { id: string }) {
 
 ```tsx
 import { useRef } from 'react';
-import { useUnmount } from '@sober/react-use-core';
+import { useUnmount } from '@gysober/react-use-core';
 
 function RequestButton() {
   const controllerRef = useRef<AbortController>();

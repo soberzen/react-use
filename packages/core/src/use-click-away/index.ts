@@ -1,5 +1,5 @@
 import { type RefObject, useEffect, useRef } from 'react';
-import { off, on } from '@sober/react-use-shared';
+import { off, on } from '@gysober/react-use-shared';
 
 const defaultEvents = ['mousedown', 'touchstart'];
 

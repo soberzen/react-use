@@ -23,7 +23,7 @@
 ### useBoolean
 
 ```tsx
-import { useBoolean } from '@sober/react-use-core';
+import { useBoolean } from '@gysober/react-use-core';
 
 function Demo() {
   const [checked, { setTrue, setFalse, toggle, set }] = useBoolean();
@@ -42,7 +42,7 @@ function Demo() {
 ### useToggle
 
 ```tsx
-import { useToggle } from '@sober/react-use-core';
+import { useToggle } from '@gysober/react-use-core';
 
 function ThemeSwitch() {
   const [theme, toggleTheme] = useToggle('light', 'dark');
@@ -56,7 +56,7 @@ function ThemeSwitch() {
 ### useFocus
 
 ```tsx
-import { useFocus } from '@sober/react-use-core';
+import { useFocus } from '@gysober/react-use-core';
 
 function SearchInput() {
   const [ref, focus, blur, isFocused] = useFocus<HTMLInputElement>();
@@ -75,7 +75,7 @@ function SearchInput() {
 ### useHover
 
 ```tsx
-import { useHover } from '@sober/react-use-core';
+import { useHover } from '@gysober/react-use-core';
 
 function HoverBox() {
   const [ref, isHover] = useHover<HTMLDivElement>();
@@ -88,7 +88,7 @@ function HoverBox() {
 
 ```tsx
 import { useRef, useState } from 'react';
-import { useClickAway } from '@sober/react-use-core';
+import { useClickAway } from '@gysober/react-use-core';
 
 function Dropdown() {
   const ref = useRef<HTMLDivElement>(null);
@@ -109,7 +109,7 @@ function Dropdown() {
 
 ```tsx
 import { useRef } from 'react';
-import { useScroll } from '@sober/react-use-core';
+import { useScroll } from '@gysober/react-use-core';
 
 function ScrollPanel() {
   const ref = useRef<HTMLDivElement>(null);
@@ -133,7 +133,7 @@ function ScrollPanel() {
 ### useDocumentTitle
 
 ```tsx
-import { useDocumentTitle } from '@sober/react-use-core';
+import { useDocumentTitle } from '@gysober/react-use-core';
 
 function DetailPage() {
   useDocumentTitle('详情页');
@@ -145,7 +145,7 @@ function DetailPage() {
 ### useEffectOnce
 
 ```tsx
-import { useEffectOnce } from '@sober/react-use-core';
+import { useEffectOnce } from '@gysober/react-use-core';
 
 function Demo() {
   useEffectOnce(() => {
@@ -159,7 +159,7 @@ function Demo() {
 ### useUnmount
 
 ```tsx
-import { useUnmount } from '@sober/react-use-core';
+import { useUnmount } from '@gysober/react-use-core';
 
 function Demo() {
   useUnmount(() => {
@@ -173,7 +173,7 @@ function Demo() {
 ### useIsomorphicEffect
 
 ```tsx
-import { useIsomorphicEffect } from '@sober/react-use-core';
+import { useIsomorphicEffect } from '@gysober/react-use-core';
 
 function Demo() {
   useIsomorphicEffect(() => {
@@ -189,7 +189,7 @@ function Demo() {
 ### useRafState
 
 ```tsx
-import { useRafState } from '@sober/react-use-core';
+import { useRafState } from '@gysober/react-use-core';
 
 function Demo() {
   const [count, setCount] = useRafState(0);

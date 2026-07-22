@@ -1,9 +1,9 @@
 ---
 pageType: home
-title: '@sober/react-use'
+title: '@gysober/react-use'
 
 hero:
-  name: '@sober/react-use'
+  name: '@gysober/react-use'
   text: 面向 React 的 Hooks 工具库
   tagline: 提供状态控制、DOM 交互、副作用、生命周期和性能优化等常用能力，基于 TypeScript 编写。
   actions:

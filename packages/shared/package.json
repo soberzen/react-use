@@ -1,6 +1,6 @@
 {
-  "name": "@sober/react-use-shared",
-  "version": "1.0.0",
+  "name": "@gysober/react-use-shared",
+  "version": "0.0.0",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.mts",

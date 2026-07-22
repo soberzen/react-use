@@ -5,8 +5,8 @@
     "moduleResolution": "bundler",
 
     "paths": {
-      "@sober/react-use-core": ["../packages/core/src/index.ts"],
-      "@sober/react-use-shared": ["../packages/shared/src/index.ts"]
+      "@gysober/react-use-core": ["../packages/core/src/index.ts"],
+      "@gysober/react-use-shared": ["../packages/shared/src/index.ts"]
     }
   }
 }

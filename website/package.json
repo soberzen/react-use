@@ -21,7 +21,7 @@
   "dependencies": {
     "react": "catalog:",
     "react-dom": "catalog:",
-    "@sober/react-use-core": "workspace:*"
+    "@gysober/react-use-core": "workspace:*"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
