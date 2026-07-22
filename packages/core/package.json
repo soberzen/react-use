@@ -19,6 +19,9 @@
   "files": [
     "dist/**"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "build --watch",
     "build": "build",
