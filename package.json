@@ -36,6 +36,7 @@
   "author": "sober",
   "license": "MIT",
   "devDependencies": {
+    "@changesets/cli": "^2.31.1",
     "@commitlint/config-conventional": "^21.0.1",
     "@cspell/dict-lorem-ipsum": "^4.0.5",
     "@eslint/js": "9.36.0",
