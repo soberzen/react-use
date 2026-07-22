@@ -1,5 +1,11 @@
 # @gysober/react-use-shared
 
+## 2.0.0
+
+### Major Changes
+
+- ad70065: change
+
 ## 1.0.0
 
 ### Major Changes
