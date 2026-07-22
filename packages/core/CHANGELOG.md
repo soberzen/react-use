@@ -1,4 +1,4 @@
-# @sober/react-use-core
+# @gysober/react-use-core
 
 ## 1.0.0
 
@@ -9,4 +9,4 @@
 ### Patch Changes
 
 - Updated dependencies [a4df4eb]
-  - @sober/react-use-shared@1.0.0
+  - @gysober/react-use-shared@1.0.0
