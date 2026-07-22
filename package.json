@@ -35,6 +35,10 @@
       "path": "node_modules/cz-git"
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soberzen/react-use.git"
+  },
   "packageManager": "pnpm@11.1.3",
   "author": "sober",
   "license": "MIT",
