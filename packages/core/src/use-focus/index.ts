@@ -1,4 +1,4 @@
-import { isFunction } from '@sober/react-use-shared';
+import { isFunction, on, off } from '@sober/react-use-shared';
 import { type ForwardedRef, type RefCallback, useCallback, useEffect, useState } from 'react';
 
 export type UseFocusReturn<T> = [
@@ -50,16 +50,16 @@ export function useFocus<T extends HTMLElement = HTMLInputElement>(
     const handleFocus = () => setIsFocused(true);
     const handleBlur = () => setIsFocused(false);
 
-    element.addEventListener('focus', handleFocus);
-    element.addEventListener('blur', handleBlur);
+    on(element, 'focus', handleFocus);
+    on(element, 'blur', handleBlur);
 
     if (document.activeElement === element) {
       setIsFocused(true);
     }
 
     return () => {
-      element.removeEventListener('focus', handleFocus);
-      element.removeEventListener('blur', handleBlur);
+      off(element, 'focus', handleFocus);
+      off(element, 'blur', handleBlur);
     };
   }, [element]);
 

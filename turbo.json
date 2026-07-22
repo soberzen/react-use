@@ -7,8 +7,8 @@
       "dependsOn": ["^build"]
     },
     "dev": {
-      "dependsOn": ["^dev"],
-      "cache": false
+      "cache": false,
+      "persistent": true
     }
   },
   "ui": "tui"

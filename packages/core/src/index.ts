@@ -1,8 +1,20 @@
+export { default as useBoolean } from './use-boolean';
+export { default as useClickAway } from './use-click-away';
+export { default as useEffectOnce } from './use-effect-once';
+export { default as useFocus } from './use-focus';
+export { default as useHover } from './use-hover';
+export { default as useRafState } from './use-raf-state';
+export { default as useScroll } from './use-scroll';
+export { default as useToggle } from './use-toggle';
+export { default as useUnmount } from './use-unmount';
+
 export * from './use-focus';
 export * from './use-toggle';
 export * from './use-boolean';
+export * from './use-click-away';
 export * from './use-document-title';
 export * from './use-effect-once';
+export * from './use-hover';
 export * from './use-isomorphic-effect';
 export * from './use-raf-state';
 export * from './use-scroll';
