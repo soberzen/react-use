@@ -26,6 +26,7 @@ function runBuild(relativePath, options) {
     format: ['cjs', 'esm'],
     outDir: resolve(relativePath, 'dist'),
     clean: !options.watch,
+    minify: true,
     dts: true,
     deps: {
       neverBundle: ['react', 'react-dom'],

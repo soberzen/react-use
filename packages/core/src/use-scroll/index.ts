@@ -7,7 +7,7 @@ export interface ScrollState {
   y: number;
 }
 
-function useScroll(ref: RefObject<HTMLElement>): ScrollState {
+function useScroll(ref: RefObject<HTMLElement | null>): ScrollState {
   if (process.env.NODE_ENV === 'development') {
     if (!isObject(ref) || isNull(ref) || typeof ref.current === 'undefined') {
       console.error('`useScroll` expects a single ref argument.');
