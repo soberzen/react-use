@@ -1,0 +1,53 @@
+import { UseIsomorphicEffectDemo } from '../../components/hook-demos';
+
+# useIsomorphicEffect
+
+| 信息 | 内容 |
+| --- | --- |
+| 分类 | SSR |
+| 导出 | `useIsomorphicEffect` |
+| 源码 | [packages/core/src/use-isomorphic-effect/index.ts](https://github.com/soberzen/react-use/blob/main/packages/core/src/use-isomorphic-effect/index.ts) |
+
+在浏览器环境中使用 `useLayoutEffect`，在非浏览器环境中回退到 `useEffect`。它用于避免 SSR 场景中直接使用 `useLayoutEffect` 产生警告。
+
+## 使用
+
+```tsx
+import { useRef, useState } from 'react';
+import { useIsomorphicEffect } from '@sober/react-use-core';
+
+function MeasureBox() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState(0);
+
+  useIsomorphicEffect(() => {
+    if (ref.current) {
+      setWidth(ref.current.offsetWidth);
+    }
+  }, []);
+
+  return <div ref={ref}>宽度：{width}</div>;
+}
+```
+
+## 示例
+
+<UseIsomorphicEffectDemo />
+
+## 参数
+
+参数与 React 的 `useEffect` / `useLayoutEffect` 一致。
+
+## Type Declarations
+
+```ts
+import { useEffect, useLayoutEffect } from 'react';
+
+const useIsomorphicEffect: typeof useEffect | typeof useLayoutEffect;
+```
+
+## 细节
+
+- `typeof document !== 'undefined'` 时使用 `useLayoutEffect`。
+- 没有 `document` 时使用 `useEffect`。
+- 适合组件库内部封装 DOM 测量、布局同步等逻辑。

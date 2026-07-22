@@ -1,0 +1,78 @@
+import { UseHoverDemo } from '../../components/hook-demos';
+
+# useHover
+
+| 信息 | 内容 |
+| --- | --- |
+| 分类 | DOM 与交互 |
+| 导出 | `useHover` |
+| 源码 | [packages/core/src/use-hover/index.ts](https://github.com/soberzen/react-use/blob/main/packages/core/src/use-hover/index.ts) |
+
+监听元素的鼠标移入和移出状态。适合 hover 卡片、工具栏按钮、浮层触发器和交互反馈。
+
+## 使用
+
+```tsx
+import { useHover } from '@sober/react-use-core';
+
+function HoverCard() {
+  const [ref, isHover] = useHover<HTMLDivElement>();
+
+  return (
+    <div ref={ref}>
+      {isHover ? '鼠标在元素上' : '鼠标不在元素上'}
+    </div>
+  );
+}
+```
+
+## 示例
+
+<UseHoverDemo />
+
+## 透传外部 ref
+
+```tsx
+import { useRef } from 'react';
+import { useHover } from '@sober/react-use-core';
+
+function ButtonTip() {
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const [ref, isHover] = useHover<HTMLButtonElement>({
+    externalRef: buttonRef,
+  });
+
+  return (
+    <button ref={ref}>
+      {isHover ? '松开查看' : '悬浮查看'}
+    </button>
+  );
+}
+```
+
+## 参数
+
+| 参数 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| `options.externalRef` | `ForwardedRef<T>` | `undefined` | 同步赋值给外部 ref，支持 callback ref 和 ref object。 |
+
+## 返回值
+
+| 位置 | 类型 | 说明 |
+| --- | --- | --- |
+| `0` | `RefCallback<T>` | 绑定到目标元素的 ref。 |
+| `1` | `boolean` | 当前元素是否处于 hover 状态。 |
+
+## Type Declarations
+
+```ts
+export interface UseHoverOptions<T> {
+  externalRef?: ForwardedRef<T>;
+}
+
+export type UseHoverReturn<T> = [RefCallback<T>, boolean];
+
+function useHover<T extends HTMLElement = HTMLElement>(
+  options?: UseHoverOptions<T>
+): UseHoverReturn<T>;
+```

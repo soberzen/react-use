@@ -1,0 +1,91 @@
+import { UseRafStateDemo } from '../../components/hook-demos';
+
+# useRafState
+
+| 信息 | 内容 |
+| --- | --- |
+| 分类 | 性能 |
+| 导出 | `useRafState` |
+| 源码 | [packages/core/src/use-raf-state/index.ts](https://github.com/soberzen/react-use/blob/main/packages/core/src/use-raf-state/index.ts) |
+
+使用 `requestAnimationFrame` 延迟更新 state。它适合滚动、拖拽、动画等高频更新场景，可以减少同一帧内的重复渲染。
+
+## 使用
+
+```tsx
+import { useRafState } from '@sober/react-use-core';
+
+function Counter() {
+  const [count, setCount] = useRafState(0);
+
+  return (
+    <button onClick={() => setCount((value) => value + 1)}>
+      {count}
+    </button>
+  );
+}
+```
+
+## 示例
+
+<UseRafStateDemo />
+
+## 跟踪鼠标位置
+
+```tsx
+import { useEffect } from 'react';
+import { useRafState } from '@sober/react-use-core';
+
+function MousePosition() {
+  const [position, setPosition] = useRafState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handler = (event: MouseEvent) => {
+      setPosition({
+        x: event.clientX,
+        y: event.clientY,
+      });
+    };
+
+    window.addEventListener('mousemove', handler);
+
+    return () => {
+      window.removeEventListener('mousemove', handler);
+    };
+  }, [setPosition]);
+
+  return (
+    <span>
+      {position.x}, {position.y}
+    </span>
+  );
+}
+```
+
+## 参数
+
+| 参数 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| `initialState` | `T \| (() => T)` | 必填 | 初始状态，和 `useState` 一致。 |
+
+## 返回值
+
+| 位置 | 类型 | 说明 |
+| --- | --- | --- |
+| `0` | `T` | 当前状态。 |
+| `1` | `Dispatch<SetStateAction<T>>` | 在下一帧更新状态的 setter。 |
+
+## Type Declarations
+
+```ts
+import type { Dispatch, SetStateAction } from 'react';
+
+function useRafState<T>(
+  initialState: T | (() => T)
+): [T, Dispatch<SetStateAction<T>>];
+```
+
+## 细节
+
+- 同一帧内多次调用 setter，会取消前一次 raf，只保留最后一次更新。
+- 组件卸载时会取消尚未执行的 raf 任务。

@@ -1,0 +1,67 @@
+import { UseEffectOnceDemo } from '../../components/hook-demos';
+
+# useEffectOnce
+
+| 信息 | 内容 |
+| --- | --- |
+| 分类 | 生命周期 |
+| 导出 | `useEffectOnce` |
+| 源码 | [packages/core/src/use-effect-once/index.ts](https://github.com/soberzen/react-use/blob/main/packages/core/src/use-effect-once/index.ts) |
+
+只在组件挂载时执行一次 effect，相当于依赖数组为空的 `useEffect`。适合初始化订阅、上报页面曝光、注册一次性资源。
+
+## 使用
+
+```tsx
+import { useEffectOnce } from '@sober/react-use-core';
+
+function PageView() {
+  useEffectOnce(() => {
+    console.log('页面已挂载');
+  });
+
+  return <div>页面内容</div>;
+}
+```
+
+## 示例
+
+<UseEffectOnceDemo />
+
+## 清理函数
+
+```tsx
+import { useEffectOnce } from '@sober/react-use-core';
+
+function WindowResizeLogger() {
+  useEffectOnce(() => {
+    const handler = () => console.log(window.innerWidth);
+
+    window.addEventListener('resize', handler);
+
+    return () => {
+      window.removeEventListener('resize', handler);
+    };
+  });
+
+  return null;
+}
+```
+
+## 参数
+
+| 参数 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| `effect` | `EffectCallback` | 必填 | 只在挂载时执行一次的副作用函数。 |
+
+## Type Declarations
+
+```ts
+import type { EffectCallback } from 'react';
+
+function useEffectOnce(effect: EffectCallback): void;
+```
+
+## 注意
+
+`useEffectOnce` 会忽略依赖数组。如果 effect 中使用了会变化的 props 或 state，请确认这正是你需要的行为。

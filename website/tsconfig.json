@@ -2,6 +2,11 @@
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
     "module": "esnext",
-    "moduleResolution": "bundler"
+    "moduleResolution": "bundler",
+    "rootDir": ".",
+    "paths": {
+      "@sober/react-use-core": ["../packages/core/src/index.ts"],
+      "@sober/react-use-shared": ["../packages/shared/src/index.ts"]
+    }
   }
 }

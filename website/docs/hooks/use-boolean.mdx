@@ -1,0 +1,67 @@
+import { UseBooleanDemo } from '../../components/hook-demos';
+
+# useBoolean
+
+| 信息 | 内容                                                                                                                             |
+| ---- | -------------------------------------------------------------------------------------------------------------------------------- |
+| 分类 | 状态                                                                                                                             |
+| 导出 | `useBoolean`                                                                                                                     |
+| 源码 | [packages/core/src/use-boolean/index.ts](https://github.com/soberzen/react-use/blob/main/packages/core/src/use-boolean/index.ts) |
+
+用于管理 boolean 状态。相比直接使用 `useState<boolean>`，它把常见操作封装成语义化方法，适合弹窗开关、加载状态、表单勾选、抽屉展开等场景。
+
+## 使用
+
+```tsx
+import { useBoolean } from '@sober/react-use-core';
+
+function Dialog() {
+  const [open, { setTrue, setFalse, toggle }] = useBoolean(false);
+
+  return (
+    <>
+      <button onClick={setTrue}>打开弹窗</button>
+      <button onClick={toggle}>切换</button>
+      {open && (
+        <div role="dialog">
+          <p>弹窗内容</p>
+          <button onClick={setFalse}>关闭</button>
+        </div>
+      )}
+    </>
+  );
+}
+```
+
+## 示例
+
+<UseBooleanDemo />
+
+## 参数
+
+| 参数           | 类型      | 默认值  | 说明       |
+| -------------- | --------- | ------- | ---------- |
+| `initialValue` | `boolean` | `false` | 初始状态。 |
+
+## 返回值
+
+| 位置         | 类型                       | 说明                            |
+| ------------ | -------------------------- | ------------------------------- |
+| `0`          | `boolean`                  | 当前 boolean 状态。             |
+| `1.setTrue`  | `() => void`               | 设置为 `true`。                 |
+| `1.setFalse` | `() => void`               | 设置为 `false`。                |
+| `1.toggle`   | `() => void`               | 在 `true` 和 `false` 之间切换。 |
+| `1.set`      | `(value: boolean) => void` | 设置为指定 boolean 值。         |
+
+## Type Declarations
+
+```ts
+export interface BooleanActions {
+  setTrue: () => void;
+  setFalse: () => void;
+  toggle: () => void;
+  set: (value: boolean) => void;
+}
+
+function useBoolean(initialValue?: boolean): [boolean, BooleanActions];
+```

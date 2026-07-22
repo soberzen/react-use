@@ -1,0 +1,89 @@
+import { UseFocusDemo } from '../../components/hook-demos';
+
+# useFocus
+
+| 信息 | 内容 |
+| --- | --- |
+| 分类 | DOM 与交互 |
+| 导出 | `useFocus` |
+| 源码 | [packages/core/src/use-focus/index.ts](https://github.com/soberzen/react-use/blob/main/packages/core/src/use-focus/index.ts) |
+
+管理元素聚焦状态，并提供命令式 `focus`、`blur` 方法。适合搜索框、表单项、可编辑区域和自定义输入组件。
+
+## 使用
+
+```tsx
+import { useFocus } from '@sober/react-use-core';
+
+function SearchBox() {
+  const [ref, focus, blur, isFocused] = useFocus<HTMLInputElement>();
+
+  return (
+    <div>
+      <input ref={ref} placeholder="搜索" />
+      <button onClick={() => focus()}>聚焦</button>
+      <button onClick={blur}>失焦</button>
+      <span>{isFocused ? '已聚焦' : '未聚焦'}</span>
+    </div>
+  );
+}
+```
+
+## 示例
+
+<UseFocusDemo />
+
+## 透传外部 ref
+
+```tsx
+import { useRef } from 'react';
+import { useFocus } from '@sober/react-use-core';
+
+function InputWithExternalRef() {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [ref, focus] = useFocus<HTMLInputElement>({
+    externalRef: inputRef,
+  });
+
+  return (
+    <>
+      <input ref={ref} />
+      <button onClick={() => focus({ preventScroll: true })}>聚焦</button>
+    </>
+  );
+}
+```
+
+## 参数
+
+| 参数 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| `options.externalRef` | `ForwardedRef<T>` | `undefined` | 同步赋值给外部 ref，支持 callback ref 和 ref object。 |
+
+## 返回值
+
+| 位置 | 类型 | 说明 |
+| --- | --- | --- |
+| `0` | `RefCallback<T>` | 绑定到目标元素的 ref。 |
+| `1` | `(options?: FocusOptions) => void` | 调用元素的 `focus` 方法。 |
+| `2` | `() => void` | 调用元素的 `blur` 方法。 |
+| `3` | `boolean` | 当前元素是否聚焦。 |
+
+## Type Declarations
+
+```ts
+export type UseFocusReturn<T> = [
+  RefCallback<T>,
+  (options?: FocusOptions) => void,
+  () => void,
+  boolean,
+];
+
+export interface UseFocusOptions<T> {
+  externalRef?: ForwardedRef<T>;
+}
+
+function useFocus<T extends HTMLElement = HTMLInputElement>(
+  options?: UseFocusOptions<T>
+): UseFocusReturn<T>;
+```
