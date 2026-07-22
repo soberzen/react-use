@@ -33,6 +33,11 @@
     "shared"
   ],
   "description": "Shared code for react-use",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soberzen/react-use.git",
+    "directory": "packages/shared"
+  },
   "author": "sober",
   "license": "MIT",
   "type": "module",

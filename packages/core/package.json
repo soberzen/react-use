@@ -29,6 +29,11 @@
     "test:coverage": "vitest run --color --coverage"
   },
   "description": "Core package of react-use",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soberzen/react-use.git",
+    "directory": "packages/core"
+  },
   "keywords": [
     "react-use",
     "react",
