@@ -1,0 +1,86 @@
+import { UseScrollDemo } from '../../components/hook-demos';
+
+# useScroll
+
+| 信息 | 内容 |
+| --- | --- |
+| 分类 | DOM 与交互 |
+| 导出 | `useScroll` |
+| 源码 | [packages/core/src/use-scroll/index.ts](https://github.com/soberzen/react-use/blob/main/packages/core/src/use-scroll/index.ts) |
+
+监听元素滚动位置，返回横向和纵向滚动坐标。内部使用 `useRafState`，滚动状态会在下一帧更新，适合高频滚动场景。
+
+## 使用
+
+```tsx
+import { useRef } from 'react';
+import { useScroll } from '@sober/react-use-core';
+
+function ScrollPanel() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { x, y } = useScroll(ref);
+
+  return (
+    <div>
+      <div>
+        x: {x}, y: {y}
+      </div>
+      <div ref={ref} style={{ width: 320, height: 200, overflow: 'auto' }}>
+        <div style={{ width: 800, height: 800 }} />
+      </div>
+    </div>
+  );
+}
+```
+
+## 示例
+
+<UseScrollDemo />
+
+## 滚动进度
+
+```tsx
+import { useRef } from 'react';
+import { useScroll } from '@sober/react-use-core';
+
+function ReadingProgress() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { y } = useScroll(ref);
+  const progress = Math.min(y / 600, 1);
+
+  return (
+    <article ref={ref} style={{ height: 300, overflow: 'auto' }}>
+      <div style={{ transform: `scaleX(${progress})` }} />
+      <div style={{ height: 900 }}>文章内容</div>
+    </article>
+  );
+}
+```
+
+## 参数
+
+| 参数 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| `ref` | `RefObject<HTMLElement>` | 必填 | 需要监听滚动的元素 ref。 |
+
+## 返回值
+
+| 字段 | 类型 | 说明 |
+| --- | --- | --- |
+| `x` | `number` | `scrollLeft`。 |
+| `y` | `number` | `scrollTop`。 |
+
+## Type Declarations
+
+```ts
+export interface ScrollState {
+  x: number;
+  y: number;
+}
+
+function useScroll(ref: RefObject<HTMLElement>): ScrollState;
+```
+
+## 注意
+
+开发环境下，如果传入的 ref 不是合法对象，控制台会输出错误提示；生产环境会静默处理并返回默认值 `{ x: 0, y: 0 }`。

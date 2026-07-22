@@ -1,0 +1,72 @@
+import { UseUnmountDemo } from '../../components/hook-demos';
+
+# useUnmount
+
+| 信息 | 内容 |
+| --- | --- |
+| 分类 | 生命周期 |
+| 导出 | `useUnmount` |
+| 源码 | [packages/core/src/use-unmount/index.ts](https://github.com/soberzen/react-use/blob/main/packages/core/src/use-unmount/index.ts) |
+
+在组件卸载时执行回调。内部会保存最新的回调引用，因此即使回调在渲染过程中变化，卸载时也会调用最新版本。
+
+## 使用
+
+```tsx
+import { useUnmount } from '@sober/react-use-core';
+
+function Subscription({ id }: { id: string }) {
+  useUnmount(() => {
+    console.log('组件卸载，清理订阅：', id);
+  });
+
+  return <div>订阅 ID：{id}</div>;
+}
+```
+
+## 示例
+
+<UseUnmountDemo />
+
+## 清理异步任务
+
+```tsx
+import { useRef } from 'react';
+import { useUnmount } from '@sober/react-use-core';
+
+function RequestButton() {
+  const controllerRef = useRef<AbortController>();
+
+  useUnmount(() => {
+    controllerRef.current?.abort();
+  });
+
+  return (
+    <button
+      onClick={() => {
+        controllerRef.current = new AbortController();
+      }}
+    >
+      发起请求
+    </button>
+  );
+}
+```
+
+## 参数
+
+| 参数 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| `fn` | `() => any` | 必填 | 组件卸载时执行的函数。 |
+
+## Type Declarations
+
+```ts
+function useUnmount(fn: () => any): void;
+```
+
+## 细节
+
+- 挂载时不会执行 `fn`。
+- 每次渲染都会更新内部保存的 `fn` 引用。
+- 组件卸载时只执行一次。

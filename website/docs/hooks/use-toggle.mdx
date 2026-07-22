@@ -1,0 +1,75 @@
+import { UseToggleDemo } from '../../components/hook-demos';
+
+# useToggle
+
+| 信息 | 内容 |
+| --- | --- |
+| 分类 | 状态 |
+| 导出 | `useToggle` |
+| 源码 | [packages/core/src/use-toggle/index.ts](https://github.com/soberzen/react-use/blob/main/packages/core/src/use-toggle/index.ts) |
+
+在两个值之间切换。默认不传参数时表现为 boolean 开关；传入两个值时，会在 `defaultValue` 和 `reverseValue` 之间切换。
+
+## 使用
+
+```tsx
+import { useToggle } from '@sober/react-use-core';
+
+function ThemeSwitch() {
+  const [theme, toggleTheme] = useToggle('light', 'dark');
+
+  return (
+    <button onClick={toggleTheme}>
+      当前主题：{theme}
+    </button>
+  );
+}
+```
+
+## Boolean 开关
+
+```tsx
+import { useToggle } from '@sober/react-use-core';
+
+function Panel() {
+  const [collapsed, toggleCollapsed] = useToggle(false);
+
+  return (
+    <section>
+      <button onClick={toggleCollapsed}>
+        {collapsed ? '展开' : '收起'}
+      </button>
+      {!collapsed && <div>面板内容</div>}
+    </section>
+  );
+}
+```
+
+## 示例
+
+<UseToggleDemo />
+
+## 参数
+
+| 参数 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| `defaultValue` | `T` | `false` | 初始值，也是切换时回到的值。 |
+| `reverseValue` | `R` | boolean 时取反，否则等于 `defaultValue` | 反转值。 |
+
+## 返回值
+
+| 位置 | 类型 | 说明 |
+| --- | --- | --- |
+| `0` | `T \| R \| boolean` | 当前值。 |
+| `1` | `() => void` | 切换到另一个值。 |
+
+## Type Declarations
+
+```ts
+function useToggle<T, R = T>(defaultValue: T, reverseValue: R): [T | R, () => void];
+function useToggle<T = boolean>(defaultValue?: T): [T | boolean, () => void];
+```
+
+## 注意
+
+只传入非 boolean 值时，因为没有可推导的反转值，切换后仍然会保持同一个值。需要在两个自定义值之间切换时，请同时传入 `defaultValue` 和 `reverseValue`。
