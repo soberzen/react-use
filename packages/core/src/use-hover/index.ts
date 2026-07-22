@@ -1,6 +1,6 @@
 import type { ForwardedRef, RefCallback } from 'react';
 import { useState, useEffect, useCallback } from 'react';
-import { isFunction, on, off } from '@sober/react-use-shared';
+import { isFunction, on, off } from '@gysober/react-use-shared';
 
 export interface UseHoverOptions<T> {
   externalRef?: ForwardedRef<T>;

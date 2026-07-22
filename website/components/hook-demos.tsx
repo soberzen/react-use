@@ -12,7 +12,7 @@ import {
   useScroll,
   useToggle,
   useUnmount,
-} from '@sober/react-use-core';
+} from '@gysober/react-use-core';
 
 function DemoFrame({ children }: { children: ReactNode }) {
   return <div className="not-prose my-6 rounded-xl bg-slate-50 p-6">{children}</div>;

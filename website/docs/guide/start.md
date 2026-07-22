@@ -5,25 +5,25 @@
 安装 core 包：
 
 ```bash
-pnpm add @sober/react-use-core
+pnpm add @gysober/react-use-core
 ```
 
 如果你使用 npm 或 yarn：
 
 ```bash
-npm install @sober/react-use-core
+npm install @gysober/react-use-core
 ```
 
 ```bash
-yarn add @sober/react-use-core
+yarn add @gysober/react-use-core
 ```
 
 ## 基础使用
 
-从 `@sober/react-use-core` 导入需要的 Hook：
+从 `@gysober/react-use-core` 导入需要的 Hook：
 
 ```tsx
-import { useBoolean } from '@sober/react-use-core';
+import { useBoolean } from '@gysober/react-use-core';
 
 function Demo() {
   const [visible, { setTrue, setFalse, toggle }] = useBoolean(false);
@@ -41,7 +41,7 @@ function Demo() {
 
 ## 包入口
 
-`@sober/react-use-core` 当前提供状态、DOM、副作用、生命周期和性能优化相关 Hooks。
+`@gysober/react-use-core` 当前提供状态、DOM、副作用、生命周期和性能优化相关 Hooks。
 
 ```tsx
 import {
@@ -56,7 +56,7 @@ import {
   useScroll,
   useToggle,
   useUnmount,
-} from '@sober/react-use-core';
+} from '@gysober/react-use-core';
 ```
 
 下一步可以查看 [Hooks 总览](/guide/hooks.html)。

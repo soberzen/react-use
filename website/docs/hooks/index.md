@@ -1,6 +1,6 @@
 # Hooks 总览
 
-这里是 `@sober/react-use-core` 当前提供的所有 Hooks。点击 Hook 名称进入详情页，左侧也可以按分类切换。
+这里是 `@gysober/react-use-core` 当前提供的所有 Hooks。点击 Hook 名称进入详情页，左侧也可以按分类切换。
 
 ## 状态
 

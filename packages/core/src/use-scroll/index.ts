@@ -1,5 +1,5 @@
 import { type RefObject, useEffect } from 'react';
-import { off, on, isObject, isNull } from '@sober/react-use-shared';
+import { off, on, isObject, isNull } from '@gysober/react-use-shared';
 import useRafState from '../use-raf-state';
 
 export interface ScrollState {

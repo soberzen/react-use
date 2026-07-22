@@ -138,7 +138,7 @@ importers:
 
   packages/core:
     dependencies:
-      '@sober/react-use-shared':
+      '@gysober/react-use-shared':
         specifier: workspace:*
         version: link:../shared
       react:
@@ -163,7 +163,7 @@ importers:
 
   website:
     dependencies:
-      '@sober/react-use-core':
+      '@gysober/react-use-core':
         specifier: workspace:*
         version: link:../packages/core
       react:

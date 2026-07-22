@@ -1,4 +1,4 @@
-import { isBoolean } from '@sober/react-use-shared';
+import { isBoolean } from '@gysober/react-use-shared';
 import { useCallback, useState } from 'react';
 
 /**

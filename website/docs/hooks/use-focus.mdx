@@ -13,7 +13,7 @@ import { UseFocusDemo } from '../../components/hook-demos';
 ## 使用
 
 ```tsx
-import { useFocus } from '@sober/react-use-core';
+import { useFocus } from '@gysober/react-use-core';
 
 function SearchBox() {
   const [ref, focus, blur, isFocused] = useFocus<HTMLInputElement>();
@@ -37,7 +37,7 @@ function SearchBox() {
 
 ```tsx
 import { useRef } from 'react';
-import { useFocus } from '@sober/react-use-core';
+import { useFocus } from '@gysober/react-use-core';
 
 function InputWithExternalRef() {
   const inputRef = useRef<HTMLInputElement>(null);

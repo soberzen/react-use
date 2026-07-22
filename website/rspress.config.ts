@@ -15,8 +15,8 @@ export default defineConfig({
   builderConfig: {
     source: {
       alias: {
-        '@sober/react-use-core': join(__dirname, '../packages/core/src/index.ts'),
-        '@sober/react-use-shared': join(__dirname, '../packages/shared/src/index.ts'),
+        '@gysober/react-use-core': join(__dirname, '../packages/core/src/index.ts'),
+        '@gysober/react-use-shared': join(__dirname, '../packages/shared/src/index.ts'),
       },
     },
   },

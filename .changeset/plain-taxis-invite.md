@@ -1,6 +1,6 @@
 ---
-'@sober/react-use-shared': major
-'@sober/react-use-core': major
+'@gysober/react-use-shared': major
+'@gysober/react-use-core': major
 ---
 
 initial release
