@@ -1,4 +1,4 @@
-# @sober/react-use-shared
+# @gysober/react-use-shared
 
 ## 1.0.0
 
